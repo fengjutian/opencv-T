@@ -135,14 +135,173 @@
 # cv.waitKey(0)
 # cv.destroyAllWindows()
 
-import cv2 as cv
+# import cv2 as cv
 
-image1 = cv.imread("img1.jpg")
-cv.imshow("image", image1)
-image2 = cv.cvtColor(image1, cv.COLOR_BGR2RGB)
-image2 = cv.cvtColor(image2, cv.COLOR_RGB2HSV)
-cv.imshow("image2", image2)
-cv.waitKey()
-cv.destroyAllWindows()
+# image1 = cv.imread("img1.jpg")
+# cv.imshow("image", image1)
+# image2 = cv.cvtColor(image1, cv.COLOR_BGR2RGB)
+# image2 = cv.cvtColor(image2, cv.COLOR_RGB2HSV)
+# cv.imshow("image2", image2)
+# cv.waitKey()
+# cv.destroyAllWindows()
+
+# import cv2 as cv
+# import numpy as np
+
+# image = cv.imread("img1.jpg")
+# h, w = image.shape[:2] # 获取图像大小信息
+# M = np.float32([[1, 0, 120], [0, 1, -120]]) # 构建转换矩阵
+# imageMove = cv.warpAffine(image, M, (w, h))  # 进行仿射变换---平移
+# cv.imshow("image", image)
+# cv.imshow("imageMove", imageMove)
+# cv.waitKey(0)
+# cv.destroyAllWindows()
+
+
+# import cv2 as cv
+# import numpy as np
+
+# image = cv.imread("img1.jpg")
+# h, w = image.shape[:2]
+# M = np.float32([[0.5, 0, 0], [0, 0.5, 0]])
+# imageMove = cv.warpAffine(image, M, (w, h))
+# cv.imshow("image", image)
+# cv.imshow("imageMove", imageMove)
+# cv.waitKey(0)
+# cv.destroyAllWindows()
+
+# import cv2 as cv
+# image = cv.imread("img1.jpg")
+# h, w = image.shape[:2]
+# # 得到转换矩阵M,效果是以图像的宽高的1/3为中心顺时针旋转40度。缩小为原来的0.4
+# M = cv.getRotationMatrix2D((w / 3, h / 3), 40, 0.4)
+# imageMove = cv.warpAffine(image, M, (w, h))
+# cv.imshow("image", image)
+# cv.imshow("imageMove", imageMove)
+# cv.waitKey(0)
+# cv.destroyAllWindows()
+
+
+# import cv2 as cv
+# import numpy as np
+
+# image = np.random.randint(0, 256, size=[6, 6], dtype=np.uint8)
+# w, h = image.shape  # 得到数组的宽与高
+# # 建立新数组的大小
+# x = np.zeros((w, h), np.float32)
+# y = np.zeros((w, h), np.float32)
+
+# # 实现新数组的访问操作
+# for i in range(w):
+#     for j in range(h):
+#         x.itemset((i, j), j)
+#         y.itemset((i, j), i)
+
+# rst = cv.remap(image, x, y, cv.INTER_LINEAR)  # 实现数组的复制
+# print("image=\n", image)
+# print("rst=\n", rst)
+
+
+# import cv2 as cv
+# import numpy as np
+
+# image = cv.imread("img1.jpg")
+# w, h = image.shape[:2]
+# map1 = np.zeros((w, h), np.float32)
+# map2 = np.zeros((w, h), np.float32)
+# # 实现新图像的访问操作
+# for i in range(w):
+#     for j in range(h):
+#         map1.itemset((i, j), j)
+#         map2.itemset((i, j), w - 1 - i)
+# rst = cv.remap(image, map1, map2, cv.INTER_LINEAR)
+# cv.imshow("image", image)
+# cv.imshow("rst", rst)
+# cv.waitKey(0)
+# cv.destroyAllWindows()
+
+# import cv2 as cv
+# import numpy as np
+
+# image = cv.imread("img1.jpg")
+# w, h = image.shape[:2]  # 得到图像的宽与高
+# map1 = np.zeros((w, h), np.float32)
+# map2 = np.zeros((w, h), np.float32)
+
+# # 实现新图像的访问操作
+# for i in range(w):
+#     for j in range(h):
+#         map1.itemset((i, j), h - 1 - j)
+#         map2.itemset((i, j), i)
+
+# rst = cv.remap(image, map1, map2, cv.INTER_LINEAR)
+# cv.imshow("image", image)
+# cv.imshow("rst", rst)
+# cv.waitKey(0)
+# cv.destroyAllWindows()
+
+
+
+# import cv2 as cv
+# import numpy as np
+
+# image = cv.imread("img1.jpg")
+# h, w = image.shape[:2]
+# src = np.array([[0, 0], [w - 1, 0], [0, h - 1], [w - 1, h - 1]], np.float32)
+# dst = np.array([[80, 80], [w / 2, 50], [80, h - 80], [w - 40, h - 40]], np.float32)
+# # 计算投影变换矩阵
+# M = cv.getPerspectiveTransform(src, dst)
+# # 进行投影变换
+# image1 = cv.warpPerspective(image, M, (w, h), borderValue=125)
+# cv.imshow("image", image)
+# cv.imshow("image1", image1)
+# cv.waitKey(0)
+# cv.destroyAllWindows()
+
+# import cv2 as cv
+
+# image = cv.imread("img1.jpg", cv.IMREAD_ANYCOLOR)
+# dst = cv.linearPolar(image, (251, 249), 225, cv.INTER_LINEAR)
+
+# cv.imshow("image", image)
+# cv.imshow("dst", dst)
+
+# cv.waitKey(0)
+# cv.destroyAllWindows()
+
+
+# import cv2 as cv
+
+# image = cv.imread("img1.jpg")
+# # 计算其统计直方图信息
+# hist = cv.calcHist([image], [0], None, [256], [0, 255])
+# print(hist)
+
+
+import matplotlib.pyplot as plt
+
+arr1 = [1, 1.2, 1.5, 1.6, 2, 2.5, 2.8, 3.5, 4.3]
+arr2 = [5, 4.5, 4.3, 4.2, 3.6, 3.4, 3.1, 2.5, 2.1, 1.5]
+
+plt.plot(arr1)
+plt.plot(arr2, 'r')
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
