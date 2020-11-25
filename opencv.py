@@ -304,15 +304,81 @@
 
 
 
-import cv2 as cv
-import matplotlib.pyplot as plt 
+# import cv2 as cv
+# import matplotlib.pyplot as plt 
 
-image = cv.imread("img1.jpg")
-image = image.ravel() # 将图像转化为一维数组
-plt.hist(image, 256) # 绘制直方图
-cv.waitKey(0)
-cv.destroyAllWindows()
-plt.show()
+# image = cv.imread("img1.jpg")
+# image = image.ravel() # 将图像转化为一维数组
+# plt.hist(image, 256) # 绘制直方图
+# cv.waitKey(0)
+# cv.destroyAllWindows()
+# plt.show()
+
+
+# import numpy as np
+# import cv2 as cv
+# import math
+# import matplotlib.pyplot as plt 
+
+# # 计算图像灰度直方图
+# def calcGrayHist(image):
+#     # 灰度图像的矩阵的宽高
+#     rows = image.shape[0]
+#     cols = image.shape[1] 
+#     # 存储灰度直方图
+#     grayHist = np.zeros([256], np.uint32)
+#     for r in range(rows):
+#         for c in range(cols):
+#             grayHist[image[r][c]] += 1
+#     return grayHist
+
+# # 直方图均衡化
+# def equalHist(image):
+#     rows = image.shape[0]
+#     cols = image.shape[1]
+    
+#     grayHist = calcGrayHist(image)
+#     # 计算累加直方图
+#     zeroCumuMoment = np.zeros([256], np.uint32)
+#     for p in range(256):
+#         if p == 0:
+#             zeroCumuMoment[p] = grayHist[0]
+#         else:
+#             zeroCumuMoment[0] = zeroCumuMoment[p - 1] + grayHist[p]
+#     # 根据直方图均衡化得到饿输入灰度和输出灰度的映射
+#     outPut_q = np.zeros([256], np.uint8)
+#     cofficent = 256.0 / (rows * cols)
+#     for p in range(256):
+#         q = cofficent * float(zeroCumuMoment[p]) - 1
+#         if q >= 0:
+#             outPut_q[p] = math.floor(q)
+#         else:
+#             outPut_q[p] = 0
+#     # 得到直方图均衡化的图像
+#     equalHistImage = np.zeros(image.shape, np.uint8)
+#     for r in range(rows):
+#         for c in range(cols):
+#             equalHistImage[r][c] = outPut_q[image[r][c]]
+#     return equalHistImage
+
+# image = cv.imread("./img1.jpg")
+# dst = equalHist(image) # 直方图均衡化
+# cv.imshow("image", image)
+# cv.imshow("dst", dst)
+
+# # 显示原始图像直方图
+# plt.figure("原始直方图")
+# plt.hist(image.ravel(), 256)
+# # 显示均衡化后的图像直方图
+# plt.figure("均衡化直方图")
+# plt.hist(dst.ravel(), 256)
+# plt.show()
+# cv.waitKey(0)
+# cv.destroyAllWindows()
+
+
+
+
 
 
 
