@@ -6,9 +6,13 @@
 # cv.waitKey(0)            # 默认为0， 无限等待
 # cv.destroyAllWindows()  # 释放窗口
 
+
+# import cv2 as cv
 # img = cv.imread("img1.jpg")
 # cv.imwrite('./img/img1.jpg', img)
 
+
+# import cv2 as cv
 # img = cv.imread("img1.jpg")
 # b, g, r = cv.split(img)  # 拆分图像通道为b、g、r三个通道
 # cv.imshow("b", b)
@@ -18,6 +22,7 @@
 # cv.waitKey(0)
 # cv.destoryAllWindows()
 
+# import cv2 as cv
 # img = cv.imread("img1.jpg")
 # b, g, r = cv.split(img)
 # imgagebgr = cv.merge([b, g, r])
@@ -27,6 +32,8 @@
 # cv.destroyAllWindows()
 
 
+
+# import cv2 as cv
 # img = cv.imread("img1.jpg")
 # print("img.shape", img.shape)  # 输出图像的大小属性
 # print("img.size", img.size)  # 输出图像的像素数目属性
@@ -277,18 +284,35 @@
 # hist = cv.calcHist([image], [0], None, [256], [0, 255])
 # print(hist)
 
+# import cv2 as cv
+# import matplotlib.pyplot as plt
 
-import matplotlib.pyplot as plt
+# arr1 = [1, 1.2, 1.5, 1.6, 2, 2.5, 2.8, 3.5, 4.3]
+# arr2 = [5, 4.5, 4.3, 4.2, 3.6, 3.4, 3.1, 2.5, 2.1, 1.5]
 
-arr1 = [1, 1.2, 1.5, 1.6, 2, 2.5, 2.8, 3.5, 4.3]
-arr2 = [5, 4.5, 4.3, 4.2, 3.6, 3.4, 3.1, 2.5, 2.1, 1.5]
+# plt.plot(arr1)
+# plt.plot(arr2, 'r')
+# plt.show()
 
-plt.plot(arr1)
-plt.plot(arr2, 'r')
+
+# import cv2 as cv
+# import matplotlib.pyplot as plt 
+# image = cv.imread('img1.jpg')
+# hist = cv.calcHist([image], [0], None, [256], [0, 256])
+# plt.plot(hist)
+# plt.show()
+
+
+
+import cv2 as cv
+import matplotlib.pyplot as plt 
+
+image = cv.imread("img1.jpg")
+image = image.ravel() # 将图像转化为一维数组
+plt.hist(image, 256) # 绘制直方图
+cv.waitKey(0)
+cv.destroyAllWindows()
 plt.show()
-
-
-
 
 
 
