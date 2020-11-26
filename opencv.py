@@ -376,6 +376,39 @@
 # cv.waitKey(0)
 # cv.destroyAllWindows()
 
+# import cv2 as cv
+
+# image = cv.imread('./img1.jpg')
+# cv.imshow("image", image)
+# # 定义卷积5*5，采用自动计算权重的方式实现高斯滤波
+# gauss = cv.GassianBlur(image, (5, 5), 0, 0)
+# cv.imshow("gauss", gauss)
+# cv.waitKey(0)
+# cv.destroyAllWindows()
+
+
+# import cv2 as cv
+
+# image = cv.imread("./img1.jpg")
+# # 定义一个卷积和为5*5， 实现均值滤波
+# means5 = cv.blur(image, (5, 5))
+# means10 = cv.blur(image, (10, 10))
+# means20 = cv.blur(image, (20, 20))
+# cv.imshow("means5", means5)
+# cv.imshow("means10", means10)
+# cv.imshow("means20", means20)
+# cv.waitKey(0)
+# cv.destroyAllWindows()
+
+
+import cv2 as cv
+image = cv.imread("./img1.jpg")
+ret, dst = cv.threshold(image, 127, 255, cv.THRESH_BINARY)
+cv.imshow("image", image)
+cv.imshow("dst", dst)
+cv.waitKey(0)
+cv.destroyAllWindows()
+
 
 
 
