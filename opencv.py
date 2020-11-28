@@ -409,15 +409,44 @@
 # cv.waitKey(0)
 # cv.destroyAllWindows()
 
+# import cv2 as cv
+# image = cv.imread("./img1.jpg")
+# ret, dst = cv.threshold(image, 127, 255, cv.THRESH_BINARY_INV)
+# cv.imshow("dst", dst)
+# cv.waitKey(0)
+# v.destroyAllWindows()
+
+
+# import cv2 as cv
+# # 读取灰度图
+# image = cv.imread("./img1.jpg", 0)
+# ret, dst = cv.threshold(image, 127, 255, cv.THRESH_TRUNC)
+# cv.imshow("image", image)
+# cv.imshow("dst", dst)
+# cv.waitKey(0)
+# cv.destroyWindow()
+
+
+# import cv2 as cv
+# image = cv.imread("./img1.jpg", 0)
+# ret, dst = cv.threshold(image, 127, 255, cv.THRESH_TOZERO_INV)
+# cv.imshow("image", image)
+# cv.imshow("dst", dst)
+# cv.waitKey(0)
+# cv.destroyAllWindows()
+
 import cv2 as cv
+
 image = cv.imread("./img1.jpg")
-ret, dst = cv.threshold(image, 127, 255, cv.THRESH_BINARY_INV)
-cv.imshow("dst", dst)
+t1, thd = cv.threshold(image, 150, 255, cv.THRESH_BINARY)
+t2, Ostu = cv.threshold(image, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
+cv.imshow("image", image)
+cv.imshow("thd", thd)
+cv.imshow("ostu", Ostu)
+print("二值化阈值处理的阈值是： %s" % t1)
+print("Ostu阈值处理的阈值是： %s" % t2)
 cv.waitKey(0)
-v.destroyAllWindows()
-
-
-
+cv.destroyAllWindows()
 
 
 
