@@ -435,19 +435,40 @@
 # cv.waitKey(0)
 # cv.destroyAllWindows()
 
+# import cv2 as cv
+
+# image = cv.imread("./img1.jpg")
+# t1, thd = cv.threshold(image, 150, 255, cv.THRESH_BINARY)
+# t2, Ostu = cv.threshold(image, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
+# cv.imshow("image", image)
+# cv.imshow("thd", thd)
+# cv.imshow("ostu", Ostu)
+# print("二值化阈值处理的阈值是： %s" % t1)
+# print("Ostu阈值处理的阈值是： %s" % t2)
+# cv.waitKey(0)
+# cv.destroyAllWindows()
+
+# import cv2 as cv
+# import numpy as np
+
+# image = cv.imread("./img1.jpg")
+# k = np.ones((3, 3), np.uint8)  # 构建3*3矩形结构元
+# img = cv.erode(image, k, iterations=10)  # 腐蚀操作，迭代3次
+# cv.imshow("erode", img)
+# cv.waitKey(0)
+# cv.destroyAllWindows()
+
+
+
 import cv2 as cv
+import numpy as np
 
 image = cv.imread("./img1.jpg")
-t1, thd = cv.threshold(image, 150, 255, cv.THRESH_BINARY)
-t2, Ostu = cv.threshold(image, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
-cv.imshow("image", image)
-cv.imshow("thd", thd)
-cv.imshow("ostu", Ostu)
-print("二值化阈值处理的阈值是： %s" % t1)
-print("Ostu阈值处理的阈值是： %s" % t2)
+k = np.ones((3, 3), np.uint8)
+img3 = cv.dilate(image, k, iterations=3)
+cv.imshow("img3", img3)
 cv.waitKey(0)
 cv.destroyAllWindows()
-
 
 
 
