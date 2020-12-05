@@ -471,6 +471,10 @@ cv.waitKey(0)
 cv.destroyAllWindows()
 
 
+# import cv2 as cv
+# import numpy as np
+# image = cv.imread("./img1.png")
+
 
 
 
